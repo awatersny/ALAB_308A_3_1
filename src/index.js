@@ -9,7 +9,13 @@ async function getUserData(id) {
   }
   const db = await central(id)
   const user = await dbs[db](id)
+  const userVault = await vault(id)
   console.log(user)
+  console.log(userVault)
+  return{
+
+  }
 }
 
-getUserData(1)
+const data = await getUserData(1)
+console.log(data)
