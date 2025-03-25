@@ -25,7 +25,7 @@ async function getUserData(id) {
 async function getAllUserData() {
   const data = []
   for(let i = 1; i < 11; i++){
-    data.push(await getUserData(i))
+    data.push(await getUserData(i)) // <-- getUserData is being called here
   }
   return data
 }
