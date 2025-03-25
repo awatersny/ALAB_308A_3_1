@@ -22,5 +22,13 @@ async function getUserData(id) {
   }
 }
 
-const data = await getUserData(1)
+async function getAllUserData() {
+  const data = []
+  for(let i = 1; i < 11; i++){
+    data.push(await getUserData(i))
+  }
+  return data
+}
+
+const data = await getAllUserData()
 console.log(data)
