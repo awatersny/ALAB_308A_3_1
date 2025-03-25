@@ -7,4 +7,7 @@ function getUserData(id) {
     db2: db2,
     db3: db3
   };
+  return dbs
 }
+
+console.log(getUserData())
