@@ -10,10 +10,15 @@ async function getUserData(id) {
   const db = await central(id)
   const user = await dbs[db](id)
   const userVault = await vault(id)
-  console.log(user)
-  console.log(userVault)
   return{
-
+    id: id,
+    name: userVault.name,
+    username: user.username,
+    email: userVault.email,
+    address: userVault.address,
+    phone: userVault.phone,
+    website: user.website,
+    company: user.company
   }
 }
 
