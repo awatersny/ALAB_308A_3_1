@@ -6,8 +6,12 @@ function getUserData(id) {
     db1: db1,
     db2: db2,
     db3: db3
-  };
-  return dbs
+  }
+  central(id).then(db => {
+    dbs[db](id).then(user => {
+      console.log(user)
+    })
+  })
 }
 
-console.log(getUserData())
+getUserData(1)
