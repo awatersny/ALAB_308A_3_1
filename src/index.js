@@ -3,11 +3,11 @@ import { central, db1, db2, db3, vault } from "./databases.js";
 
 async function getUserData(id) {
   try {
-  const dbs = {
-    db1: db1,
-    db2: db2,
-    db3: db3
-  }
+    const dbs = {
+      db1: db1,
+      db2: db2,
+      db3: db3
+    }
     const db = await central(id)
     const user = await dbs[db](id)
     const userVault = await vault(id)
@@ -26,21 +26,6 @@ async function getUserData(id) {
   }
 }
 
-// function getUserData(id) {
-//   const data = {id: id}
-//   const dbs = {
-//     db1: db1,
-//     db2: db2,
-//     db3: db3
-//   }
-//   const user = central(id)
-//   .then(db => dbs[db](id)
-//   .then(user => user))
-//   const userVault = vault(id).then(data => data)
-//   console.log(userVault)
-//   return userVault
-// }
-
 async function getAllUserData() {
   const data = []
   for(let i = 1; i < 11; i++){
@@ -49,5 +34,7 @@ async function getAllUserData() {
   return data
 }
 
-// const data = await getUserData(1)
-// console.log(data)
+const data = await getAllUserData()
+const leanne = await getUserData(1)
+console.log("Leanne:\n", leanne)
+console.log("\n\nEveryone:\n", data)
